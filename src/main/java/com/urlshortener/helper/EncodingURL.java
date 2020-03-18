@@ -1,4 +1,4 @@
-package com.example.helper;
+package com.urlshortener.helper;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;

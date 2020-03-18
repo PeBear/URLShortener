@@ -1,6 +1,6 @@
-package com.example.service;
+package com.urlshortener.service;
 
-import com.example.model.Staff;
+import com.urlshortener.model.Staff;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

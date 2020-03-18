@@ -1,4 +1,4 @@
-package com.example.model;
+package com.urlshortener.model;
 
 public class Staff {
     private int id;

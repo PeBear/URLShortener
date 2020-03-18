@@ -1,7 +1,9 @@
-package com.example.controller;
+package com.urlshortener.controller;
 
-import com.example.model.Staff;
-import com.example.service.StaffService;
+import com.urlshortener.model.Staff;
+import com.urlshortener.model.User;
+import com.urlshortener.service.StaffService;
+import com.urlshortener.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,9 @@ import java.util.List;
 public class HomeController {
     @Autowired
     private StaffService staffService;
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     public String display() {
@@ -29,6 +34,7 @@ public class HomeController {
     public void addStaff(@RequestBody Staff staff) {
         staffService.addStaff(staff);
     }
+
     //func get single staff
     @RequestMapping(value = "staffs/{id}", method = RequestMethod.GET)
     public Staff getStaff(@PathVariable("id") int id) {
@@ -45,5 +51,17 @@ public class HomeController {
     @RequestMapping(value = "staffs/{id}", method = RequestMethod.DELETE)
     public void deleteStaff(@PathVariable("id") int id) {
         staffService.deleteStaff(id);
+    }
+
+    @RequestMapping(value = "users", method = RequestMethod.GET)
+    public void getListUsers() {
+        List<User> list = userService.getListUsers();
+        for (User x : list) {
+            System.out.println(x);
+        }
+    }
+    @RequestMapping(value = "users/users", method = RequestMethod.GET)
+    public List<User> getListUsersTemp() {
+        return userService.getListUsers();
     }
 }
