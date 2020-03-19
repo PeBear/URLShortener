@@ -19,4 +19,21 @@ public class UserService {
     public List<User> getListUsers() {
         return userDAO.getListUser();
     }
+
+    public User getInfoUser(String username) {
+        return userDAO.getInfoUser(username);
+    }
+
+    public boolean insertUser(User user) {
+        return userDAO.insertUser(user);
+    }
+
+    public boolean updateUser(User user) {
+        return userDAO.updateUser(user);
+    }
+
+    public boolean deleteUser(String username) {
+        return userDAO.deleteUser(username);
+    }
+
 }

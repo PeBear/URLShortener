@@ -18,13 +18,18 @@ public class User {
     private String fogot_string;
     private Date expired_active;
     private Date expired_forgot;
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonIgnore
     private Collection<Url> urls;
 
     public User() {
     }
-
+    public User(String username, String password, boolean gender, String email){
+        this.username = username;
+        this.password = password;
+        this.gender = gender;
+        this.email = email;
+    }
     public String getUsername() {
         return username;
     }

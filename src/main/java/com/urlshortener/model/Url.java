@@ -3,21 +3,30 @@ package com.urlshortener.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "Urls")
-public class Url {
+public class Url implements Serializable {
     @Id
     private String hash_url;
     private String original_url;
+    @Temporal(TemporalType.DATE)
     private Date create_date;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "username")
     @JsonIgnore
     private User user;
 
     public Url() {
+    }
+
+    public Url(String hash_url, String original_url, Date create_date, User user){
+        this.hash_url = hash_url;
+        this.original_url = original_url;
+        this.create_date = create_date;
+        this.user = user;
     }
 
     public String getHash_url() {

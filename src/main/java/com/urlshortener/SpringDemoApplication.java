@@ -21,27 +21,24 @@ import java.util.Arrays;
 public class SpringDemoApplication {
 
     public static void main(String[] args) {
-//        for (int i = 0; i < 1000000; i++){
-//            System.out.println("record " + i + ": " + EncodingURL.encodingURL(""+i,"xpeter" + i));
-//        }
         SpringApplication.run(SpringDemoApplication.class, args);
-
     }
 
-    @Bean
-    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> {
-
-            System.out.println("Let's inspect the beans provided by Spring Boot:");
-
-            String[] beanNames = ctx.getBeanDefinitionNames();
-            Arrays.sort(beanNames);
-            for (String beanName : beanNames) {
-                System.out.println(beanName);
-            }
-
-        };
-    }
+    //Check exist bean
+//    @Bean
+//    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+//        return args -> {
+//
+//            System.out.println("Let's inspect the beans provided by Spring Boot:");
+//
+//            String[] beanNames = ctx.getBeanDefinitionNames();
+//            Arrays.sort(beanNames);
+//            for (String beanName : beanNames) {
+//                System.out.println(beanName);
+//            }
+//
+//        };
+//    }
 
 
 }
